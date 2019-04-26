@@ -13,7 +13,12 @@
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ami_name": "{{user `ami_name`}}",
-      "name": "{{user `name`}}"
+      "name": "{{user `name`}}",
+      "tags": {
+        "OS_Version": "Amazon Linux",
+        "BaseAMI": "{{user `source_ami`}}",
+        "Name": "{{user `name`}}"
+      }
     }
   ],
   "post-processors": [
