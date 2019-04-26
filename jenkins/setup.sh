@@ -12,7 +12,7 @@ sudo service jenkins start
 
 sudo chkconfig jenkins on
 
-wget -O $HOME/packer.zip https://releases.hashicorp.com/packer/1.4.0/packer_1.4.0_freebsd_amd64.zip
+wget -O $HOME/packer.zip https://releases.hashicorp.com/packer/1.4.0/packer_1.4.0_linux_amd64.zip
 wget -O $HOME/terraform.zip https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
 
 unzip $HOME/packer.zip
