@@ -1,7 +1,8 @@
 {
   "variables": {
     "source_ami": "ami-0de53d8956e8dcf80",
-    "ami_name": "Jenkins AMI {{ timestamp }}",
+    "ami_name": "ES Jenkins {{ timestamp }}",
+    "name": "ES/Jenkins",
     "region": "us-east-1"
   },
   "builders": [
@@ -11,7 +12,8 @@
       "source_ami": "{{user `source_ami`}}",
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
-      "ami_name": "{{user `ami_name`}}"
+      "ami_name": "{{user `ami_name`}}",
+      "name": "{{user `name`}}"
     }
   ],
   "post-processors": [
