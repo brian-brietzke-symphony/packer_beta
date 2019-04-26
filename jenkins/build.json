@@ -1,0 +1,33 @@
+{
+  "variables": {
+    "source_ami": "ami-0de53d8956e8dcf80",
+    "ami_name": "Jenkins AMI {{ timestamp }}",
+    "region": "us-east-1"
+  },
+  "builders": [
+    {
+      "type": "amazon-ebs",
+      "region": "{{user `region`}}",
+      "source_ami": "{{user `source_ami`}}",
+      "instance_type": "t2.micro",
+      "ssh_username": "ec2-user",
+      "ami_name": "{{user `ami_name`}}"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "manifest",
+      "output": "../jenkins.manifest",
+      "strip_path": true,
+      "custom_data": {
+        "source_ami": "{{user `source_ami`}}"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "setup.sh"
+    }
+  ]
+}
